@@ -1,21 +1,17 @@
 <template>
     <div>
-        <table border="1px">
-            <thead>
-                <td>No</td>
-                <td>Nama</td>
-                <td>NIP</td>
-                <td>&nbsp</td>
-            </thead>
-            <tbody>
-                <tr v-for="datapegawai in datapegawais">
-                    <td>Isi No {{datapegawai.id}}</td>
-                    <td>{{datapegawai.nama}}</td>
-                    <td>{{datapegawai.nip}}</td>
-                    <td><button v-on:click="hapusPegawai(datapegawai.id)">Hapus</button></td>
+        <form>
+            <table border="1px">
+                <tr>
+                    <td>Nama</td>
+                    <td></td>
                 </tr>
-            </tbody> 
-        </table>
+                <tr>
+                    <td>NIP</td>
+                    <td></td>                    
+                </tr>
+            </table>
+        </form>
     </div>
 </template>
 <script>
