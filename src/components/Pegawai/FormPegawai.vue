@@ -36,17 +36,31 @@ export default {
     },
 
     methods:{
-        tambahPegawai:function(){            
-            axios
+        tambahPegawai:function(){
+            if (this.datapegawai==null){
+                axios
                 .post(
                     'http://localhost:8090/pegawai'
                     ,this.datapegawai                
                 )
                 .then(response=>{this.$router.push('/pegawai')})
                 .catch(e => {this.errors.push(e)})       
-            console.log("berhasil tambah " + this.datapegawai 
+                console.log("berhasil tambah " + this.datapegawai);
+
+            } else{
+                axios
+                .put(
+                    'http://localhost:8090/pegawai/'+ this.datapegawai.id
+                    ,this.datapegawai
+                )
+                .then(response=>{this.$router.push('/pegawai')})
+                .catch(e => {this.errors.push(e)})       
+                console.log("berhasil update " + this.datapegawai);
+
+            }           
+             
             /* + "nama " + this.datapegawai.nama + " nip " + this.datapegawai.nip */
-            )
+            
             
         }
     }
