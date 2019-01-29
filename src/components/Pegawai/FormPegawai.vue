@@ -14,8 +14,6 @@
             </table>
             <button type="submit">Simpan</button>
         </form>
-        <p>Nama is: {{ datapegawai.nama }}</p>
-        <p>NIP is: {{ datapegawai.nip }}</p>
     </div>
 </template>
 <script>
@@ -37,25 +35,25 @@ export default {
 
     methods:{
         tambahPegawai:function(){
-            if (this.datapegawai==null){
-                axios
-                .post(
-                    'http://localhost:8090/pegawai'
-                    ,this.datapegawai                
-                )
-                .then(response=>{this.$router.push('/pegawai')})
-                .catch(e => {this.errors.push(e)})       
-                console.log("berhasil tambah " + this.datapegawai);
-
-            } else{
+            if (this.datapegawai.id){
                 axios
                 .put(
                     'http://localhost:8090/pegawai/'+ this.datapegawai.id
                     ,this.datapegawai
                 )
                 .then(response=>{this.$router.push('/pegawai')})
-                .catch(e => {this.errors.push(e)})       
+                .catch(e => {this.errors.push(e)})     
                 console.log("berhasil update " + this.datapegawai);
+
+            } else{
+                axios
+                .post(
+                    'http://localhost:8090/pegawai'
+                    ,this.datapegawai                
+                )
+                .then(response=>{this.$router.push('/pegawai')})
+                .catch(e => {this.errors.push(e)})    
+                console.log("berhasil tambah " + this.datapegawai);
 
             }           
              
