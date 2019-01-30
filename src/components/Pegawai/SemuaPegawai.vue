@@ -60,19 +60,11 @@ export default {
     methods:{
         getPegawai:function(){                      
             axios.get(
-                'http://localhost:8090/pegawai',{},{
-                    
+                'http://localhost:8090/pegawai/all',{
                     withCredentials: true,
-                    header:{
-                        "Access-Control-Allow-Credentials": true,
-                        "Access-Control-Allow-Origin": "*",
-                        "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-                        "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
-                        "Authorization":"Basic"
-                    },
                     auth: {
                         username: 'user',
-                        password: '4c62808e-6a40-4839-a2b3-f6fa30ea0cf7'
+                        password: 'cdfe9063-aa57-47a9-85dd-86cf4681bb13'
                     }
                 }
             )
@@ -84,9 +76,9 @@ export default {
                 } */
                                                     
             
-                .then(response=>{console.log("berhasil")})                  
+                .then(response=>{console.log("berhasil CORS")})                  
                 // .then(response=>{this.datapegawais=response.data})
-                .catch(e => {console.log("eror")})            
+                .catch(e => {console.log("eror CORS")})            
             console.log("berhasil get")
         },
         hapusPegawai:function(tulisan){
