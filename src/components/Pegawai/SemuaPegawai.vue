@@ -63,24 +63,14 @@ export default {
                 'http://localhost:8090/pegawai/all',{
                     withCredentials: true,
                     auth: {
-                        username: 'user',
-                        password: 'cdfe9063-aa57-47a9-85dd-86cf4681bb13'
+                        username: 'user001',
+                        password: 'pass001'
                     }
                 }
             )
-                
-                
-                /* auth: {
-                    username: 'user',
-                    password: 'c093ae19-7fa3-46f5-960e-d521d15b6a2d'
-                } */
-                                                    
-            
-                .then(response=>{console.log("berhasil CORS")})                  
-                // .then(response=>{this.datapegawais=response.data})
+                .then(response=>{this.datapegawais=response.data})
                 .catch(e => {console.log("eror CORS")})            
-            console.log("berhasil get")
-        },
+         },
         hapusPegawai:function(tulisan){
             axios
                 .delete('http://localhost:8090/pegawai/'+ tulisan)
